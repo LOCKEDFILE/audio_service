@@ -375,7 +375,7 @@ static NSMutableDictionary *nowPlayingInfo = nil;
             break;
         case ASkipToNext:
             if (enable) {
-                [commandCenter.nextTrackCommand addTarget:self action:@selector(nextTrack:)];
+                [commandCenter.nextTrackCommand addTarget:self action:@selector(clickNext:)];
             } else {
                 [commandCenter.nextTrackCommand removeTarget:nil];
             }
@@ -449,6 +449,14 @@ static NSMutableDictionary *nowPlayingInfo = nil;
         default:
             break;
     }
+}
+
+- (MPRemoteCommandHandlerStatus) clickNext: (MPRemoteCommandEvent *) event {
+    //NSLog(@"togglePlayPause");
+    [handlerChannel invokeMethod:@"click" arguments:@{
+        @"button":@(1)
+    }];
+    return MPRemoteCommandHandlerStatusSuccess;
 }
 
 - (MPRemoteCommandHandlerStatus) togglePlayPause: (MPRemoteCommandEvent *) event {

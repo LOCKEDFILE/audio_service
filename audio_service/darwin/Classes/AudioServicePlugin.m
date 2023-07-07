@@ -243,13 +243,13 @@ static NSMutableDictionary *nowPlayingInfo = nil;
 }
 
 - (MPRemoteCommandHandlerStatus) play: (MPRemoteCommandEvent *) event {
-    //NSLog(@"play");
+    NSLog(@"play");
     [handlerChannel invokeMethod:@"play" arguments:@{}];
     return MPRemoteCommandHandlerStatusSuccess;
 }
 
 - (MPRemoteCommandHandlerStatus) pause: (MPRemoteCommandEvent *) event {
-    //NSLog(@"pause");
+    NSLog(@"pause");
     [handlerChannel invokeMethod:@"pause" arguments:@{}];
     return MPRemoteCommandHandlerStatusSuccess;
 }
@@ -452,7 +452,7 @@ static NSMutableDictionary *nowPlayingInfo = nil;
 }
 
 - (MPRemoteCommandHandlerStatus) clickNext: (MPRemoteCommandEvent *) event {
-    //NSLog(@"togglePlayPause");
+    NSLog(@"togglePlayPause");
     [handlerChannel invokeMethod:@"click" arguments:@{
         @"button":@(1)
     }];
@@ -460,7 +460,7 @@ static NSMutableDictionary *nowPlayingInfo = nil;
 }
 
 - (MPRemoteCommandHandlerStatus) togglePlayPause: (MPRemoteCommandEvent *) event {
-    //NSLog(@"togglePlayPause");
+    NSLog(@"togglePlayPause");
     [handlerChannel invokeMethod:@"click" arguments:@{
         @"button":@(0)
     }];
